@@ -1,4 +1,4 @@
-<h2 align="center"><img src="res/README/icon.png" height="128"><br>Dir-tree</h2>
+<h2 align="center"><img src="https://github.com/Higurashi-kagome/dir-tree/blob/main/res/README/icon.png" height="128"><br>Dir-tree</h2>
 
 <p align = "center"><strong>A VS Code extension for generating directory tree.</strong></p>
 
@@ -6,13 +6,13 @@
 
 Use it by right clicking on a folder：
 
-![demo1](res/README/demo1.gif)
+![demo1](https://github.com/Higurashi-kagome/dir-tree/blob/main/res/README/demo1.gif)
 
 <p align='center'><strong>Right click on a folder</strong></p>
 
 Or entering `Generate directory tree` in the Command Palette：
 
-![demo2](res/README/demo2.gif)
+![demo2](https://github.com/Higurashi-kagome/dir-tree/blob/main/res/README/demo2.gif)
 
 <p align='center'><strong>Enter command in the Command Palette</strong></p>
 
@@ -21,7 +21,7 @@ You can：
 - Exclude / include folders or files by clicking the checkbox on the side of the web panel.
 - Hide / display icons of the tree by clicking the checkbox on the top of the tree text.
 
-![demo3](res/README/demo3.gif)
+![demo3](https://github.com/Higurashi-kagome/dir-tree/blob/main/res/README/demo3.gif)
 
 <p align='center'><strong>Use checkbox</strong></p>
 
@@ -29,7 +29,7 @@ You can：
 
 <p align = "center"><strong>Settings</strong></p>
 
-![settings](res/README/settings.png)
+![settings](https://github.com/Higurashi-kagome/dir-tree/blob/main/res/README/settings.png)
 
 - Check **Add Icon** option when you wanna add icons in the tree.
 
