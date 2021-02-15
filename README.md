@@ -50,7 +50,8 @@ You can：
 
 ## Known Issues
 
-It's slow when generating the tree for a directory with a amount of file, you need to wait for a while in this case.
+- It's slow when generating the tree for a directory with a amount of file, you need to wait for a while in this case.
+- The .gitignore file in the subfolder will not be parsed. So you might find the patterns of the .gitignore file don't work if you used .gitignore in the subfolders.
 
 ## Change Log
 
