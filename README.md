@@ -16,10 +16,10 @@ Or entering `Generate directory tree` in the Command Palette：
 
 <p align='center'><strong>Enter command in the Command Palette</strong></p>
 
-You can：
+And you can：
 
-- Exclude / include folders or files by clicking the checkbox on the side of the web panel.
-- Hide / display icons of the tree by clicking the checkbox on the top of the tree text.
+- Exclude / Include folders or files by clicking the checkbox on the side of the web panel.
+- Hide / Display icons of the tree by clicking the checkbox on the top of the tree text.
 
 ![demo3](https://github.com/Higurashi-kagome/dir-tree/raw/main/res/README/demo3.gif)
 
@@ -50,7 +50,7 @@ You can：
 
 ## Known Issues
 
-- It's slow when generating the tree for a directory with a amount of file, you need to wait for a while in this case.
+- It's slow when generating the tree for a directory with a amount of files, you need to wait for a while in this case.
 - The .gitignore file in the subfolder will not be parsed. So you might find the patterns of the .gitignore file don't work if you used .gitignore in the subfolders.
 
 ## Change Log
