@@ -1,0 +1,52 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+    padding: 0%;
+}
+
+button{
+    cursor: pointer;
+    bottom: 10px;
+}
+
+.ignoreCheckBox{
+    cursor: pointer;
+}
+
+#outer {
+    display: flex;
+    position: relative;
+    padding: 10px;
+    height: auto; 
+    width: auto;
+    opacity: 1;
+    transition: opacity .15s ease-in-out;
+}
+
+#treeView,
+#treeTextView{
+    height: auto;
+    width: auto;
+    border: 0.1px solid #ccc;
+    padding: 10px;
+    white-space:pre;
+}
+
+#iconTrigger+span+p{
+    border-bottom: 0.1px solid #ccc;
+}
+
+/* collapse folder when ignoreCheckBox is not checked */
+#treeView .ignoreCheckBox:not(:checked)+.folderName+br+.folder {
+    display: none;
+}
+
+/* hide icon when iconTrigger is not checked */
+#iconTrigger:not(:checked)~* .icon{
+    display: none;
+}

@@ -1,0 +1,6 @@
+node_modules
+.vscode-test/
+*.vsix
+/test.js
+/vsc-extension-quickstart.md
+/todo.md

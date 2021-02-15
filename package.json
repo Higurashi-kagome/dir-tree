@@ -1,0 +1,91 @@
+{
+  "name": "dir-tree",
+  "displayName": "Dir Tree",
+  "version": "0.1.0",
+  "publisher": "Higurashi-kagome",
+  "description": "Generate directory tree.",
+  "categories": ["Other"],
+  "keywords": ["directory","dir", "tree"],
+  "icon": "images/icon.png",
+  "engines": {"vscode": "^1.52.0"},
+  "activationEvents": [
+    "onCommand:dir-tree.generateDirTree"
+  ],
+  "main": "./src/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "dir-tree.generateDirTree",
+        "title": "Generate directory tree"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "explorerResourceIsFolder",
+          "command": "dir-tree.generateDirTree",
+          "group": "cmdGroup@1"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "dir-tree.generateDirTree",
+          "when": "workspaceFolderCount > 0"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "DirTree Configuration",
+      "properties": {
+        "dirTree.loadGitignore": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether to read .gitignore file for excluding files and folders."
+        },
+        "dirTree.addIcon": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether to add icons in the tree."
+        },
+        "dirTree.ignore": {
+          "type": "array",
+          "default": [
+              ".git/",
+              "node_modules/",
+              ".github/",
+              "/.eslintrc.json",
+              "/package-lock.json"
+		      ],
+          "description": "Configure gitignore patterns for excluding files and folders."
+        }
+      }
+    }
+  },
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "bugs": {
+    "url": "https://github.com/Higurashi-kagome/dir-tree/issues",
+    "email": "higurashi-kagome@qq.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Higurashi-kagome/dir-tree.git"
+  },
+  "homepage": "https://github.com/Higurashi-kagome/dir-tree/blob/master/README.md",
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.52.0",
+    "@types/mocha": "^8.0.4",
+    "@types/node": "^12.11.7",
+    "eslint": "^7.15.0",
+    "mocha": "^8.1.3",
+    "typescript": "^4.1.2",
+    "vscode-test": "^1.4.1"
+  },
+  "dependencies": {
+    
+  }
+}
