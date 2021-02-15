@@ -54,7 +54,7 @@ It's slow when generating the tree for a directory with a amount of file, you ne
 
 ## Change Log
 
-[CHANGELOG.md](./CHANGELOG.md)
+[CHANGELOG.md](CHANGELOG.md)
 
 ## Similar projects
 
