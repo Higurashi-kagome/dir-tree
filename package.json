@@ -47,6 +47,17 @@
           "default": true,
           "description": "Whether to add icons in the tree."
         },
+        "dirTree.treeStyle": {
+          "type": "string",
+          "default": "bold",
+          "enum": [
+              "bold",
+              "thin",
+              "boldplus",
+              "thinplus"
+          ],
+          "description": "Different tree styles."
+        },
         "dirTree.ignore": {
           "type": "array",
           "default": [

@@ -37,7 +37,8 @@ button{
     white-space:pre;
 }
 
-#iconTrigger+span+p{
+#iconTrigger~p{
+    border-top: 3px solid transparent;
     border-bottom: 0.1px solid #ccc;
 }
 
