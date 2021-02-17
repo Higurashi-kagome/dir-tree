@@ -6,31 +6,50 @@ const vscode = require('vscode');
 class DirTreeGenerator{
 	constructor(config, uri){
         this.uri = uri;
-		this.config = config;
         this.workspaceFolderPath = vscode.workspace.getWorkspaceFolder(uri).uri.fsPath;
-        this.ignore = this.getIgnore();
+		this.setConfig(config);
     }
 
-    getIgnore(){
+    setConfig(config){
+        this.config = config;
+        // Ignore and treeStyle is generated from config
+        this.ignore = this.getIgnore(config);
+        this.treeStyle = this.getTreeStyle(config);
+    }
+
+    getTreeStyle(config){
+        let treeStyles = {
+            'bold':['┃ ', '┣ ', '┗ '],
+            'thin':['│ ','├ ','└ '],
+            'boldplus':['┃ ', '┣━ ', '┗━ '],
+            'thinplus':['│ ','├─ ','└─ ']
+        }
+        return treeStyles[config.treeStyle];
+    }
+
+    getIgnore(config){
         let gitignoreContent = '';
         try {
-            if(this.config.loadGitignore){
+            if(config.loadGitignore){
                 gitignoreContent = fs.readFileSync(path.resolve(this.workspaceFolderPath, '.gitignore'), 'utf8');
             }
         } catch (error) { console.log(error.message); }
         //Add '\n' at the beginning to avoid splicing together
-        gitignoreContent += `\n${this.config.ignore.join('\n')}`;
+        gitignoreContent += `\n${config.ignore.join('\n')}`;
         let gitignore = gitignoreParser.compile(gitignoreContent);
         return {gitignore: gitignore, fsPath: this.workspaceFolderPath};
     }
 
     getTreeHtml(){
+        let treeStyle = this.treeStyle;
+        let addIcon = this.config.addIcon;
         let format = function (deps, item, isLast) {
-            let pipe = isLast ? `┗ ` : `┣ `;
-            let icon = item.type === 'folder' ? '📂' : '📜';
+            let pipe = isLast ? treeStyle[2] : treeStyle[1];
+            let icon = '';
+            if(addIcon) icon = item.type === 'folder' ? '📂' : '📜';
             let checked = item.ignored ? '' : 'checked';
             return `<input type="checkbox" class="ignoreCheckBox" ${checked}>` + 
-                `<span class='${item.type}Name'> ${Array(deps).join(`┃ `)}${pipe}` +
+                `<span class='${item.type}Name'> ${Array(deps).join(treeStyle[0])}${pipe}` +
                 `<span class='icon'>${icon}</span><span class='basename'>${item.basename}</span>` +
                 `</span><br>`;
         };
@@ -46,10 +65,11 @@ class DirTreeGenerator{
     }
 
 	getTreeText(){
+        let treeStyle = this.treeStyle;
         let format = function (deps, item, isLast) {
-            let pipe = isLast ? `┗ ` : `┣ `;
+            let pipe = isLast ? treeStyle[2] : treeStyle[1];
             let icon = item.type === 'folder' ? '📂' : '📜';
-            return ` ${Array(deps).join(`┃ `)}${pipe}<span class='icon'>${icon}</span>${item.basename}<br>`;
+            return ` ${Array(deps).join(treeStyle[0])}${pipe}<span class='icon'>${icon}</span>${item.basename}<br>`;
         };
         let basename = path.basename(this.uri.fsPath);
 		return `<span class='icon'>📦</span>${basename}<br>${this.generateTree(this.uri.fsPath, 1, true, format)}`;
