@@ -48,10 +48,17 @@ function activate(context) {
 		// Handle messages from the panel
 		webPanel.webview.onDidReceiveMessage(message => {
 			switch (message.command) {
-				case 'updatePanel':
+				case 'updateIgnore':
 					dirTreeConfig.ignore = message.ignore;
 					dirTreeConfig.loadGitignore = false;
-					treeText = new DirTreeGenerator(dirTreeConfig, uri).getTreeText();
+					dirTreeGenerator.setConfig(dirTreeConfig);
+					treeText = dirTreeGenerator.getTreeText();
+					webPanel.webview.postMessage({ command: message.command, treeText: treeText });
+					return;
+				case 'changeTreeStyle':
+					dirTreeConfig.treeStyle = message.treeStyle;
+					dirTreeGenerator.setConfig(dirTreeConfig);
+					treeText = dirTreeGenerator.getTreeText();
 					webPanel.webview.postMessage({ command: message.command, treeText: treeText });
 					return;
 				case 'copy':

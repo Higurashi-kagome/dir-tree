@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 const vscode = acquireVsCodeApi();
 let treeTextContent = document.getElementById('treeTextContent');
-let outer = document.getElementById('outer')
+let outer = document.getElementById('outer');
 /* Generate relative path from DOM */
 function getRelativePath(target){
     let relativePath = target.getElementsByClassName('basename')[0].textContent;
@@ -27,7 +27,7 @@ Array.from(checkBoxes).forEach((checkBox)=>{
             }
             return ignore;
         },[]);
-        vscode.postMessage({command: 'updatePanel', ignore: ignore});
+        vscode.postMessage({command: 'updateIgnore', ignore: ignore});
     }
 });
 
@@ -45,9 +45,17 @@ document.getElementById('copyTreeTextBtn').onclick = ()=>{
 window.addEventListener('message', event => {
     const message = event.data;
     switch (message.command) {
-        case 'updatePanel':
+        case 'updateIgnore':
+        case 'changeTreeStyle':
             outer.style.opacity="1";
             treeTextContent.innerHTML = message.treeText;
             break;
     }
 });
+
+/* treeStyle onchange */
+let treeStyleEl = document.getElementById('treeStyle');
+treeStyleEl.onchange = ()=>{
+    let treeStyle = treeStyleEl.value;
+    vscode.postMessage({command: 'changeTreeStyle', treeStyle: treeStyle});
+};
