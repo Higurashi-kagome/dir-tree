@@ -11,16 +11,30 @@ function activate(context) {
 	let cssSrc = undefined;
 
 	const conmmand = 'dir-tree.generateDirTree';
-	const commandHandler = (uri) => {
+	const commandHandler = async (uri) => {
 		let workspaceFolders = vscode.workspace.workspaceFolders;
 		if(!workspaceFolders[0]) return vscode.window.showInformationMessage('Please open a folder first.');
-		/* When run by command */
+		/* When running by command */
 		if(!uri){
 			if (workspaceFolders.length === 1) {
 				uri = workspaceFolders[0].uri;
 			} else {
-				//TODO
-				uri = workspaceFolders[0].uri;
+				function pickFolder(workspaceFolders){
+					const folders = workspaceFolders.map((item) => item.name);
+					return new Promise((res, rej) => {
+						vscode.window.showQuickPick(folders, {
+							placeHolder: 'Pick a folder.',
+							ignoreFocusOut: true
+						}).then((folderName) => {
+							if (folderName) return res(folderName);
+							return rej();
+						});
+					});
+				}
+				await pickFolder(workspaceFolders).then((folderName)=>{
+					uri = workspaceFolders.find((item) => item.name === folderName).uri;
+				}).catch((e)=>{console.log(e);});
+				if(!uri) return;	// Didn't choose any folder.
 			}
 		}
 		/* Init a generator and get dir tree */
