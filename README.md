@@ -1,4 +1,4 @@
-<h2 align="center"><img src="https://github.com/Higurashi-kagome/dir-tree/raw/main/res/README/icon.png" height="128"><br>Dir Tree</h2>
+<h2 align="center">Dir Tree</h2>
 
 <p align = "center"><strong>A VS Code extension for generating directory tree.</strong></p>
 
@@ -8,13 +8,9 @@ Use it by right clicking on a folder：
 
 ![demo1](https://github.com/Higurashi-kagome/dir-tree/raw/main/res/README/demo1.gif)
 
-<p align='center'><strong>Right click on a folder</strong></p>
-
 Or entering `Generate directory tree` in the Command Palette：
 
 ![demo2](https://github.com/Higurashi-kagome/dir-tree/raw/main/res/README/demo2.gif)
-
-<p align='center'><strong>Enter command in the Command Palette</strong></p>
 
 And you can：
 
@@ -24,11 +20,7 @@ And you can：
 
 ![demo3](https://github.com/Higurashi-kagome/dir-tree/raw/main/res/README/demo3.gif)
 
-<p align='center'><strong>Change tree style</strong></p>
-
 ## Extension Settings
-
-<p align = "center"><strong>Settings</strong></p>
 
 ![settings](https://github.com/Higurashi-kagome/dir-tree/raw/main/res/README/settings.png)
 
@@ -52,7 +44,6 @@ And you can：
 
 - It's slow when generating the tree for a directory with a amount of files, you need to wait for a while in this case.
 - The .gitignore file in the subfolder will not be parsed. So you might find the patterns of the .gitignore file don't work if you used .gitignore in the subfolders.
-- If there are several folders in the workspace, entering command in the Command Palette will generate the directory tree of the first folder. It means that you need to use it by right clicking if you wanna generate tree for other folders of the workspace.
 
 ## Change Log
 
