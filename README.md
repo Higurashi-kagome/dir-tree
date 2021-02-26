@@ -4,13 +4,7 @@
 
 ## Features
 
-Use it by right clicking on a folder：
-
-![demo1](https://github.com/Higurashi-kagome/dir-tree/raw/main/res/README/demo1.gif)
-
-Or entering `Generate directory tree` in the Command Palette：
-
-![demo2](https://github.com/Higurashi-kagome/dir-tree/raw/main/res/README/demo2.gif)
+Use it by right clicking on a folder or entering `Generate directory tree` in the Command Palette.
 
 And you can：
 
@@ -18,7 +12,7 @@ And you can：
 - Hide / Display icons of the tree by clicking the checkbox on the top of the tree text.
 - Choose different tree styles from the menu of options.
 
-![demo3](https://github.com/Higurashi-kagome/dir-tree/raw/main/res/README/demo3.gif)
+![demo](https://github.com/Higurashi-kagome/dir-tree/raw/main/res/README/demo.png)
 
 ## Extension Settings
 
@@ -43,7 +37,8 @@ And you can：
 ## Known Issues
 
 - It's slow when generating the tree for a directory with a amount of files, you need to wait for a while in this case.
-- The .gitignore file in the subfolder will not be parsed. So you might find the patterns of the .gitignore file don't work if you used .gitignore in the subfolders.
+- The `.gitignore` file in the subfolder will not be parsed. So you might find the patterns of the .gitignore file don't work if you used .gitignore in the subfolders.
+- When there is a folder ignored by `.gitignore`, it's possible to wrongly ignore all the files which is under the folder althought some files should not be ignored. For example, when folder `test` is ignored by `.gitignore`, the subfile `test.md` is possible to be ignored althought there is also a line `!test.md` in the `.gitignore` file.
 
 ## Change Log
 

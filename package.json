@@ -1,7 +1,7 @@
 {
   "name": "dir-tree",
   "displayName": "Dir Tree",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "publisher": "Higurashi-kagome",
   "description": "Generate directory tree.",
   "categories": ["Other"],
