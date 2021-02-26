@@ -110,36 +110,14 @@ class DirTreeGenerator{
     }
 
     isIgnored(fullPath){
-        function getFilesRelativePathArr(fromPath, dirPath){
-            function getFullPathArr(dirPath){
-                let list = [];
-                let arr = fs.readdirSync(dirPath);
-                arr.forEach(function(item){
-                    let fullpath = path.join(dirPath,item);
-                    let stats = fs.statSync(fullpath);
-                    if(stats.isDirectory()){
-                        list = list.concat(getFullPathArr(fullpath));
-                    }else{
-                        list.push(fullpath);
-                    }
-                });
-                return list;
-            }
-            let fullPathArr = getFullPathArr(dirPath);
-            let relativePathArr = fullPathArr.map(function(fullPath){
-                return path.relative(fromPath, fullPath).split(path.sep).join('/');
-            })
-            return relativePathArr;
-        }
+        let relativePath = '';
         if(fs.statSync(fullPath).isDirectory()){
-            let relativePathArr = getFilesRelativePathArr(this.ignore.fsPath, fullPath);
-            if(relativePathArr.filter(this.ignore.gitignore.accepts).length) return false;
-            else return true;
-        }else{
-            let relativePath = path.relative(this.ignore.fsPath, fullPath).split(path.sep).join('/');
-            if(this.ignore.gitignore.accepts(relativePath)) return false;
-            else return true;
+            // A ramdon file path for testing
+            fullPath = path.join(fullPath, 'ΦͲΟ');
         }
+        relativePath = path.relative(this.ignore.fsPath, fullPath).split(path.sep).join('/');
+        if(this.ignore.gitignore.accepts(relativePath)) return false;
+        else return true;
     }
 }
 
