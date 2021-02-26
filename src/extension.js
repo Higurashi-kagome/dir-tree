@@ -77,7 +77,7 @@ function activate(context) {
 					return;
 				case 'copy':
 					vscode.env.clipboard.writeText(message.content);
-					vscode.window.setStatusBarMessage(`已复制✔️`, 1500);
+					vscode.window.setStatusBarMessage(`Copied✔️`, 1500);
 					return;
 			}
 		}, undefined, context.subscriptions);
