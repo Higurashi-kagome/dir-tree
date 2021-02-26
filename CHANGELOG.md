@@ -41,7 +41,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Exclude folders or filse by parseing .gitignore file.
 
 [Unreleased]: https://github.com/Higurashi-kagome/dir-tree/compare/v0.3.1...HEAD
-[0.3.1]: https://github.com/Higurashi-kagome/dir-tree/compare/v0.3.0...0.3.1
-[0.3.0]: https://github.com/Higurashi-kagome/dir-tree/compare/v0.2.0...0.3.0
+[0.3.1]: https://github.com/Higurashi-kagome/dir-tree/compare/v0.3.0...v0.3.1
+[0.3.0]: https://github.com/Higurashi-kagome/dir-tree/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/Higurashi-kagome/dir-tree/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/Higurashi-kagome/dir-tree/releases/tag/v0.1.0
