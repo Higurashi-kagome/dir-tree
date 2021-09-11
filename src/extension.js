@@ -45,7 +45,7 @@ function activate(context) {
 		/* Generate webview */
 		let webPanel = vscode.window.createWebviewPanel(
 			'DirTree',
-			'Dir tree',
+			path.basename(uri.fsPath),
 			{viewColumn: vscode.ViewColumn.Active},
 			{enableScripts: true}
 		);
