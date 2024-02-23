@@ -77,7 +77,7 @@ class DirTreeGenerator{
     
     generateTree(dirFullPath, deps, isOnlyAccept, format) {
 
-        if (!fs.existsSync(dirFullPath)) return console.log(`${dirFullPath}: path dosen't exist.`);
+        if (!fs.existsSync(dirFullPath)) return console.log(`${dirFullPath}: path doesn't exist.`);
         if (!fs.statSync(dirFullPath).isDirectory()) return console.log(`${dirFullPath}: not a folder.`);
     
         let dirsAndFiles = fs.readdirSync(dirFullPath).reduce((acc, basename)=>{
@@ -112,7 +112,7 @@ class DirTreeGenerator{
     isIgnored(fullPath){
         let relativePath = '';
         if(fs.statSync(fullPath).isDirectory()){
-            // A ramdon file path for testing
+            // A random file path for testing
             fullPath = path.join(fullPath, 'ΦͲΟ');
         }
         relativePath = path.relative(this.ignore.fsPath, fullPath).split(path.sep).join('/');

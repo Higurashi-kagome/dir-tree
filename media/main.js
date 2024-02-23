@@ -32,7 +32,7 @@ Array.from(checkBoxes).forEach((checkBox)=>{
 });
 
 
-/* Copybtn onclick event */
+/* Copy btn onclick event */
 // eslint-disable-next-line no-undef
 document.getElementById('copyTreeTextBtn').onclick = ()=>{
     vscode.postMessage({

@@ -10,7 +10,6 @@ function activate(context) {
 	let scriptSrc = undefined;
 	let cssSrc = undefined;
 
-	const conmmand = 'dir-tree.generateDirTree';
 	const commandHandler = async (uri) => {
 		let workspaceFolders = vscode.workspace.workspaceFolders;
 		if(!workspaceFolders[0]) return vscode.window.showInformationMessage('Please open a folder first.');
@@ -59,7 +58,7 @@ function activate(context) {
 		cssSrc = webPanel.webview.asWebviewUri(cssPath);
 		webPanel.webview.html = getWebviewContent(treeText, treeHtml, scriptSrc, cssSrc);
 		webPanel.onDidDispose(() => {webPanel = undefined;}, null, context.subscriptions);
-		// Handle messages from the panel
+		// Handle messages from the webview panel
 		webPanel.webview.onDidReceiveMessage(message => {
 			switch (message.command) {
 				case 'updateIgnore':
@@ -83,7 +82,8 @@ function activate(context) {
 		}, undefined, context.subscriptions);
 	}
 
-	let disposable = vscode.commands.registerCommand(conmmand, commandHandler);
+	const command = 'dir-tree.generateDirTree';
+	let disposable = vscode.commands.registerCommand(command, commandHandler);
 
 	context.subscriptions.push(disposable);
 }
